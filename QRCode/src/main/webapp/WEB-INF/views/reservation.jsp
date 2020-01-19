@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Accueil</title>
+<title>- Reservation -</title>
 <style type="text/css">
 ul {
 	list-style-type: none;
@@ -34,29 +34,32 @@ li a:hover {
 
 body {
 	margin: 0;
-	text-align:center;
+	text-align: center;
 }
 </style>
 </head>
 <body>
 	<ul>
 		<li><a href="<c:url value="/"/>">Accueil</a></li>
-		<li><a href="<c:url value="/inscription"/>">Inscription</a></li>
-		<li><a href="<c:url value="/connexion"/>">Connexion</a></li>
+		<c:if test = "${admin}"><li><a href="<c:url value="/administration"/>">Administration</a></li></c:if>
+		<li><a href="<c:url value="/reservation"/>">Reservation</a></li>
 	</ul>
-
-	<h1>Inscrivez-vous</h1>
 
 	<div>
 		<form:errors />
 	</div>
 
-	<form:form servletRelativeAction="./inscription"
-		modelAttribute="donneesPersonnellesDto" acceptCharset="utf-8">
+	<form:form servletRelativeAction="./user"
+		modelAttribute="donneesFormulaireDto" acceptCharset="utf-8">
 		<p>
-			<label>Mail : </label>
-			<form:input path="mail" />
-			<form:errors path="mail" />
+			<label>Date Debut : </label>
+			<form:input path="dateDebut" type="date" />
+			<form:errors path="dateDebut" />
+		</p>
+		<p>
+			<label>Durée (en minutes) : </label>
+			<form:input path="duree" type="number" />
+			<form:errors path="duree" />
 		</p>
 		<p>
 			<label>Nom : </label>
@@ -64,24 +67,19 @@ body {
 			<form:errors path="nom" />
 		</p>
 		<p>
-			<label>Prenom : </label>
-			<form:input path="prenom" />
-			<form:errors path="prenom" />
+			<label>Description : </label>
+			<form:input path="description" type="textarea" />
+			<form:errors path="description" />
 		</p>
 		<p>
-			<label>Telephone : </label>
-			<form:input path="telephone" type="number"/>
-			<form:errors path="telephone" />
+			<label>Participant : </label>
+			<form:input path="participant" type="textfield" />
+			<form:errors path="participant" />
 		</p>
-		<p>
-			<label>Mot de Passe : </label>
-			<form:input path="mdp" type="password" />
-			<form:errors path="mdp" />
-		</p>
-		<button type="submit">S'inscrire</button>
+
+		<button type="submit">Reserver</button>
 	</form:form>
 
 	<p></p>
-
 </body>
 </html>

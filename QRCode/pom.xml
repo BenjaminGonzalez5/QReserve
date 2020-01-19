@@ -4,15 +4,14 @@
 	<groupId>io.github.spoonless</groupId>
 	<!-- artifactId correspond au nom de votre application, n'hésitez pas à
 		changer la valeur par défaut -->
-	<artifactId>inscription</artifactId>
+	<artifactId>qrcode</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<!-- précisez le nom et l'email de chaque membre de votre groupe -->
 	<developers>
 		<developer>
-			<name>VOTRE_NOM</name>
-			<email>VOTRE_EMAIL</email>
+			<name>Benjamin Gonzalez</name>
 		</developer>
 	</developers>
 

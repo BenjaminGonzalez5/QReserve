@@ -41,13 +41,32 @@ body {
 <body>
 	<ul>
 		<li><a href="<c:url value="/"/>">Accueil</a></li>
-		<c:if test = "${!connected}"><li><a href="<c:url value="/inscription"/>">Inscription</a></li></c:if>
-		<c:if test = "${!connected}"><li><a href="<c:url value="/connexion"/>">Connexion</a></li></c:if>
-		<c:if test = "${admin}"><li><a href="<c:url value="/administration"/>">Administration</a></li></c:if>
-		<c:if test = "${connected}"><li><a href="<c:url value="/reservation"/>">Reservation</a></li></c:if>
+		<li><a href="<c:url value="/inscription"/>">Inscription</a></li>
+		<li><a href="<c:url value="/connexion"/>">Connexion</a></li>
 	</ul>
 
-	<h1>Bienvenue sur QReserve</h1>
+	<h1>Connectez-vous</h1>
+
+	<div>
+		<form:errors />
+	</div>
+
+	<form:form servletRelativeAction="./connexion"
+		modelAttribute="donneesConnexionDto" acceptCharset="utf-8">
+		<p>
+			<label>Mail : </label>
+			<form:input path="mail" />
+			<form:errors path="mail" />
+		</p>
+		<p>
+			<label>Mot de Passe : </label>
+			<form:input path="mdp" type="password" />
+			<form:errors path="mdp" />
+		</p>
+		<button type="submit">Se connecter</button>
+	</form:form>
+
+	<p></p>
 
 </body>
 </html>
